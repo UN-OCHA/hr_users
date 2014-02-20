@@ -33,11 +33,41 @@ function hr_users_user_default_permissions() {
     'module' => 'profile2',
   );
 
+  // Exported permission: 'create fieldable hr_users'.
+  $permissions['create fieldable hr_users'] = array(
+    'name' => 'create fieldable hr_users',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'fieldable_panels_panes',
+  );
+
+  // Exported permission: 'delete fieldable hr_users'.
+  $permissions['delete fieldable hr_users'] = array(
+    'name' => 'delete fieldable hr_users',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'fieldable_panels_panes',
+  );
+
   // Exported permission: 'edit any main profile'.
   $permissions['edit any main profile'] = array(
     'name' => 'edit any main profile',
     'roles' => array(),
     'module' => 'profile2',
+  );
+
+  // Exported permission: 'edit fieldable hr_users'.
+  $permissions['edit fieldable hr_users'] = array(
+    'name' => 'edit fieldable hr_users',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'fieldable_panels_panes',
   );
 
   // Exported permission: 'edit own main profile'.
