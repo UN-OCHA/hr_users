@@ -130,7 +130,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 2,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'email',
         'settings' => array(),
         'type' => 'email_default',
@@ -178,9 +178,8 @@ function hr_users_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -228,7 +227,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 9,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -285,7 +284,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 10,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -334,9 +333,8 @@ function hr_users_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -388,7 +386,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 4,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -445,7 +443,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 7,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -499,7 +497,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 8,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -559,7 +557,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 3,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'phone',
         'settings' => array(
           'allow_alpha' => FALSE,
@@ -903,7 +901,7 @@ function hr_users_field_default_field_instances() {
         'weight' => 6,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -950,7 +948,7 @@ function hr_users_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'link_icons',
         'settings' => array(),
         'type' => 'link_icons',

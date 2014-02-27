@@ -30,66 +30,88 @@ function hr_users_panelizer_defaults() {
   $panelizer->link_to_entity = TRUE;
   $panelizer->extra = array();
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'bootstrap_twocol_stacked';
   $display->layout_settings = array();
-  $display->panel_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'center' => NULL,
+      'left' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '3',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+      'right' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '9',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+      'top' => NULL,
+      'bottom' => NULL,
+    ),
+    'left' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'right' => array(
+      'style' => 'bootstrap_region',
+    ),
+  );
   $display->cache = array();
   $display->title = '';
   $display->uuid = '3885f405-1a6b-4b93-b63c-46536abf2bd8';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-48106d8c-5262-41af-9fd7-d7f027d635c1';
-    $pane->panel = 'center';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'user:og_user_node';
+    $pane->pid = 'new-21bfd4b2-e8b8-4ed0-86ef-11192594db4c';
+    $pane->panel = 'left';
+    $pane->type = 'user_picture';
+    $pane->subtype = 'user_picture';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
-      'formatter' => 'og_list_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
       'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '48106d8c-5262-41af-9fd7-d7f027d635c1';
-    $display->content['new-48106d8c-5262-41af-9fd7-d7f027d635c1'] = $pane;
-    $display->panels['center'][0] = 'new-48106d8c-5262-41af-9fd7-d7f027d635c1';
+    $pane->uuid = '21bfd4b2-e8b8-4ed0-86ef-11192594db4c';
+    $display->content['new-21bfd4b2-e8b8-4ed0-86ef-11192594db4c'] = $pane;
+    $display->panels['left'][0] = 'new-21bfd4b2-e8b8-4ed0-86ef-11192594db4c';
     $pane = new stdClass();
-    $pane->pid = 'new-2ddee12d-d20f-46da-a2e5-00bb4815d28b';
-    $pane->panel = 'center';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'user:field_responder_in';
+    $pane->pid = 'new-1e22a84c-4bb2-40ea-a07d-3b2243177eb6';
+    $pane->panel = 'right';
+    $pane->type = 'entity_field_extra';
+    $pane->subtype = 'user:profile_main';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
-      'formatter' => 'og_list_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
+      'view_mode' => 'full',
       'context' => 'panelizer',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '2ddee12d-d20f-46da-a2e5-00bb4815d28b';
-    $display->content['new-2ddee12d-d20f-46da-a2e5-00bb4815d28b'] = $pane;
-    $display->panels['center'][1] = 'new-2ddee12d-d20f-46da-a2e5-00bb4815d28b';
+    $pane->uuid = '1e22a84c-4bb2-40ea-a07d-3b2243177eb6';
+    $display->content['new-1e22a84c-4bb2-40ea-a07d-3b2243177eb6'] = $pane;
+    $display->panels['right'][0] = 'new-1e22a84c-4bb2-40ea-a07d-3b2243177eb6';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-2ddee12d-d20f-46da-a2e5-00bb4815d28b';
+  $display->title_pane = '0';
   $panelizer->display = $display;
   $export['user:user:default:default'] = $panelizer;
 
