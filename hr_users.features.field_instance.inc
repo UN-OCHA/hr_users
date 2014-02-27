@@ -10,75 +10,6 @@
 function hr_users_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_other_contact_information-field_social_id'
-  $field_instances['field_collection_item-field_other_contact_information-field_social_id'] = array(
-    'bundle' => 'field_other_contact_information',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_social_id',
-    'label' => 'ID or URL',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 32,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_other_contact_information-field_social_network'
-  $field_instances['field_collection_item-field_other_contact_information-field_social_network'] = array(
-    'bundle' => 'field_other_contact_information',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_social_network',
-    'label' => 'Social network',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => 0,
-      ),
-      'type' => 'options_select',
-      'weight' => 31,
-    ),
-  );
-
   // Exported field_instance: 'fieldable_panels_pane-hr_users-field_users'
   $field_instances['fieldable_panels_pane-hr_users-field_users'] = array(
     'bundle' => 'hr_users',
@@ -601,63 +532,6 @@ function hr_users_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_other_contact_information'
-  $field_instances['profile2-main-field_other_contact_information'] = array(
-    'bundle' => 'main',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'account' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 5,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 5,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-    ),
-    'entity_type' => 'profile2',
-    'field_name' => 'field_other_contact_information',
-    'label' => 'Other contact information',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'profile2-main-field_phones'
   $field_instances['profile2-main-field_phones'] = array(
     'bundle' => 'main',
@@ -1068,13 +942,65 @@ function hr_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field_social_media'
+  $field_instances['profile2-main-field_social_media'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link_icons',
+        'settings' => array(),
+        'type' => 'link_icons',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_social_media',
+    'label' => 'Social media',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'entity_translation_sync' => FALSE,
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 10,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('A field replacing fieldable panel pane title.');
   t('Enter any other email address you would like people to know of');
   t('Enter the location where you are based.');
   t('First name');
-  t('ID or URL');
   t('If you selected "Other" in the above field, please enter your Job Title here');
   t('If you selected Other in the above field, enter the name of your organization here');
   t('Job Title');
@@ -1083,13 +1009,12 @@ function hr_users_field_default_field_instances() {
   t('Location');
   t('Organization');
   t('Organization name');
-  t('Other contact information');
   t('Other emails');
   t('Phones');
   t('Sector(s) you work for');
   t('Sectors');
   t('Select the organization you work for');
-  t('Social network');
+  t('Social media');
   t('Title');
   t('Users');
 
