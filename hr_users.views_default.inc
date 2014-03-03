@@ -166,7 +166,6 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -198,6 +197,8 @@ function hr_users_views_default_views() {
 
   /* Display: Space members */
   $handler = $view->new_display('panel_pane', 'Space members', 'space_members');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'views-icons';
   $handler->display->display_options['argument_input'] = array(
     'og_user_node_target_id' => array(
       'type' => 'context',
