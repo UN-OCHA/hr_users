@@ -134,7 +134,7 @@ function hr_users_field_default_field_instances() {
         'module' => 'email',
         'settings' => array(),
         'type' => 'email_default',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -158,7 +158,7 @@ function hr_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -180,7 +180,7 @@ function hr_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -233,7 +233,7 @@ function hr_users_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 9,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -288,7 +288,7 @@ function hr_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 10,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -335,7 +335,7 @@ function hr_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -392,7 +392,7 @@ function hr_users_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 4,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -449,7 +449,7 @@ function hr_users_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 7,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -501,7 +501,7 @@ function hr_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -573,7 +573,7 @@ function hr_users_field_default_field_instances() {
           'raw' => FALSE,
         ),
         'type' => 'phone_international',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -907,7 +907,7 @@ function hr_users_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 6,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -940,6 +940,45 @@ function hr_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field_skype_id'
+  $field_instances['profile2-main-field_skype_id'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'hr_users',
+        'settings' => array(),
+        'type' => 'hr_users_skype',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_skype_id',
+    'label' => 'Skype ID',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'profile2-main-field_social_media'
   $field_instances['profile2-main-field_social_media'] = array(
     'bundle' => 'main',
@@ -952,7 +991,7 @@ function hr_users_field_default_field_instances() {
         'module' => 'link_icons',
         'settings' => array(),
         'type' => 'link_icons',
-        'weight' => 11,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'profile2',
@@ -989,7 +1028,7 @@ function hr_users_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1012,6 +1051,7 @@ function hr_users_field_default_field_instances() {
   t('Sector(s) you work for');
   t('Sectors');
   t('Select the organization you work for');
+  t('Skype ID');
   t('Social media');
   t('Title');
   t('Users');
