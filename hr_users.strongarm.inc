@@ -13,6 +13,20 @@ function hr_users_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'auto_entitylabel_pattern_profile2_main';
+  $strongarm->value = '[profile2:field_first_name] [profile2:field_last_name]';
+  $export['auto_entitylabel_pattern_profile2_main'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'auto_entitylabel_profile2_main';
+  $strongarm->value = '1';
+  $export['auto_entitylabel_profile2_main'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'panelizer_defaults_fieldable_panels_pane_hr_users';
   $strongarm->value = array(
     'status' => 0,
@@ -56,11 +70,6 @@ function hr_users_strongarm() {
       'default' => array(
         'status' => 1,
         'default' => 1,
-        'choice' => 0,
-      ),
-      'full' => array(
-        'status' => 0,
-        'default' => 0,
         'choice' => 0,
       ),
       'teaser' => array(
