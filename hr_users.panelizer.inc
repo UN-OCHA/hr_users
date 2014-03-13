@@ -142,6 +142,9 @@ function hr_users_panelizer_defaults() {
       'default' => NULL,
       'middle' => NULL,
     ),
+    'middle' => array(
+      'style' => '-1',
+    ),
   );
   $display->cache = array();
   $display->title = '';
@@ -173,7 +176,7 @@ function hr_users_panelizer_defaults() {
     $display->content['new-4e17e53c-fbd1-45c1-9d3f-95a74b2cd940'] = $pane;
     $display->panels['middle'][0] = 'new-4e17e53c-fbd1-45c1-9d3f-95a74b2cd940';
     $pane = new stdClass();
-    $pane->pid = 'new-0e54669e-59ee-4166-86a8-de2ddac23cc7';
+    $pane->pid = 'new-ffd304a9-44b2-46ba-a64c-1ceba46e14fb';
     $pane->panel = 'middle';
     $pane->type = 'token';
     $pane->subtype = 'user:mail';
@@ -193,9 +196,9 @@ function hr_users_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '0e54669e-59ee-4166-86a8-de2ddac23cc7';
-    $display->content['new-0e54669e-59ee-4166-86a8-de2ddac23cc7'] = $pane;
-    $display->panels['middle'][1] = 'new-0e54669e-59ee-4166-86a8-de2ddac23cc7';
+    $pane->uuid = 'ffd304a9-44b2-46ba-a64c-1ceba46e14fb';
+    $display->content['new-ffd304a9-44b2-46ba-a64c-1ceba46e14fb'] = $pane;
+    $display->panels['middle'][1] = 'new-ffd304a9-44b2-46ba-a64c-1ceba46e14fb';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $panelizer->display = $display;
