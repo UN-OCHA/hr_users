@@ -152,7 +152,7 @@ function hr_users_field_default_field_instances() {
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field_emails',
-    'label' => 'Other emails',
+    'label' => 'Alternate emails',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -886,7 +886,7 @@ function hr_users_field_default_field_instances() {
         'use_tel_input' => 1,
       ),
       'type' => 'phone',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -988,7 +988,7 @@ function hr_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -1015,7 +1015,7 @@ function hr_users_field_default_field_instances() {
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field_social_media',
-    'label' => 'Social media',
+    'label' => 'Social media links',
     'required' => 0,
     'settings' => array(
       'attributes' => array(
@@ -1054,6 +1054,7 @@ function hr_users_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('A field replacing fieldable panel pane title.');
+  t('Alternate emails');
   t('Enter any other email address you would like people to know of');
   t('Enter the location where you are based.');
   t('First name');
@@ -1065,13 +1066,12 @@ function hr_users_field_default_field_instances() {
   t('Location');
   t('Organization');
   t('Organization name');
-  t('Other emails');
   t('Phones');
   t('Sector(s) you work for');
   t('Sectors');
   t('Select the organization you work for');
   t('Skype ID');
-  t('Social media');
+  t('Social media links');
   t('Title');
   t('Users');
 
