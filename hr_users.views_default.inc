@@ -341,6 +341,13 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Profile: User uid */
+  $handler->display->display_options['filters']['user']['id'] = 'user';
+  $handler->display->display_options['filters']['user']['table'] = 'profile';
+  $handler->display->display_options['filters']['user']['field'] = 'user';
+  $handler->display->display_options['filters']['user']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['user']['operator'] = '!=';
+  $handler->display->display_options['filters']['user']['value']['value'] = '1';
 
   /* Display: Space members */
   $handler = $view->new_display('panel_pane', 'Space members', 'space_members');
