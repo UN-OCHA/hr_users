@@ -197,6 +197,7 @@ function hr_users_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'hr_highlighted',
     );
     $pane->css = array();
     $pane->extras = array();

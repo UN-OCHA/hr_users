@@ -155,6 +155,7 @@ function hr_users_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Check-Ins';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -190,6 +191,13 @@ function hr_users_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'You have not checked in to any operation yet.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Relationship: OG membership: Group Node from OG membership */
   $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
@@ -249,6 +257,7 @@ function hr_users_views_default_views() {
   );
   $translatables['hr_user_memberships'] = array(
     t('Master'),
+    t('Check-Ins'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -262,6 +271,7 @@ function hr_users_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('You have not checked in to any operation yet.'),
     t('Group node from OG membership'),
     t('Group'),
     t('Member since'),
