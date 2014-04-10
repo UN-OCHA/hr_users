@@ -896,7 +896,7 @@ function hr_users_field_default_field_instances() {
     'default_value' => NULL,
     'default_value_function' => '',
     'deleted' => 0,
-    'description' => 'Sector(s) you work for',
+    'description' => 'Global Cluster(s) you work for',
     'display' => array(
       'account' => array(
         'label' => 'above',
@@ -925,7 +925,7 @@ function hr_users_field_default_field_instances() {
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field_sectors',
-    'label' => 'Sectors',
+    'label' => 'Global Clusters',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
