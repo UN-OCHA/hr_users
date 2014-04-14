@@ -1058,6 +1058,8 @@ function hr_users_field_default_field_instances() {
   t('Enter any other email address you would like people to know of');
   t('Enter the location where you are based.');
   t('First name');
+  t('Global Cluster(s) you work for');
+  t('Global Clusters');
   t('If you selected "Other" in the above field, please enter your Job Title here');
   t('If you selected Other in the above field, enter the name of your organization here');
   t('Job Title');
@@ -1067,8 +1069,6 @@ function hr_users_field_default_field_instances() {
   t('Organization');
   t('Organization name');
   t('Phones');
-  t('Sector(s) you work for');
-  t('Sectors');
   t('Select the organization you work for');
   t('Skype ID');
   t('Social media links');

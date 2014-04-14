@@ -51,7 +51,7 @@ function hr_users_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_threecol_stacked';
+  $display->layout = 'radix_boxton';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -70,7 +70,7 @@ function hr_users_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-786069d4-87cf-495f-a049-cd50dc5b2741';
-    $pane->panel = 'top';
+    $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'hr_users-space_members';
     $pane->shown = TRUE;
@@ -90,7 +90,7 @@ function hr_users_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '786069d4-87cf-495f-a049-cd50dc5b2741';
     $display->content['new-786069d4-87cf-495f-a049-cd50dc5b2741'] = $pane;
-    $display->panels['top'][0] = 'new-786069d4-87cf-495f-a049-cd50dc5b2741';
+    $display->panels['contentmain'][0] = 'new-786069d4-87cf-495f-a049-cd50dc5b2741';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-786069d4-87cf-495f-a049-cd50dc5b2741';
   $handler->conf['display'] = $display;
@@ -166,7 +166,7 @@ function hr_users_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'radix_boxton';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -184,7 +184,7 @@ function hr_users_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-6a11c7c6-b8d4-4f6d-9ace-a107c2d436f7';
-    $pane->panel = 'top';
+    $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'hr_user_memberships-checkins';
     $pane->shown = TRUE;
@@ -205,7 +205,7 @@ function hr_users_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '6a11c7c6-b8d4-4f6d-9ace-a107c2d436f7';
     $display->content['new-6a11c7c6-b8d4-4f6d-9ace-a107c2d436f7'] = $pane;
-    $display->panels['top'][0] = 'new-6a11c7c6-b8d4-4f6d-9ace-a107c2d436f7';
+    $display->panels['contentmain'][0] = 'new-6a11c7c6-b8d4-4f6d-9ace-a107c2d436f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
