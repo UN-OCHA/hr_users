@@ -334,11 +334,11 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['field_job_title']['settings'] = array(
     'link' => 0,
   );
-  /* Sort criterion: User: Created date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'users';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Field: Last name (field_last_name) */
+  $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
+  $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
+  $handler->display->display_options['sorts']['field_last_name_value']['relationship'] = 'profile';
   /* Contextual filter: User: Group membership (og_user_node) */
   $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
   $handler->display->display_options['arguments']['og_user_node_target_id']['table'] = 'og_membership';
