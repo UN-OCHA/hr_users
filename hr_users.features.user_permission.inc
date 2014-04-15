@@ -23,14 +23,18 @@ function hr_users_user_default_permissions() {
   // Exported permission: 'administer profile types'.
   $permissions['administer profile types'] = array(
     'name' => 'administer profile types',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'profile2',
   );
 
   // Exported permission: 'administer profiles'.
   $permissions['administer profiles'] = array(
     'name' => 'administer profiles',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'profile2',
   );
 
@@ -57,7 +61,9 @@ function hr_users_user_default_permissions() {
   // Exported permission: 'edit any main profile'.
   $permissions['edit any main profile'] = array(
     'name' => 'edit any main profile',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'profile2',
   );
 
