@@ -27,6 +27,7 @@ dependencies[] = panelizer
 dependencies[] = phone
 dependencies[] = profile2
 dependencies[] = profile2_page
+dependencies[] = radix_layouts
 dependencies[] = realname
 dependencies[] = strongarm
 dependencies[] = text
