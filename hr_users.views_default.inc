@@ -163,16 +163,10 @@ function hr_users_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'type',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
   $handler->display->display_options['style_options']['columns'] = array(
     'type' => 'type',
     'title_field' => 'title_field',
+    'created' => 'created',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -184,6 +178,13 @@ function hr_users_views_default_views() {
       'empty_column' => 0,
     ),
     'title_field' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -214,7 +215,7 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['relationship'] = 'og_membership_related_node_group';
-  $handler->display->display_options['fields']['title_field']['label'] = 'Group';
+  $handler->display->display_options['fields']['title_field']['label'] = 'Space';
   $handler->display->display_options['fields']['title_field']['type'] = 'title_linked';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'title_style' => '_none',
@@ -273,7 +274,7 @@ function hr_users_views_default_views() {
     t('last »'),
     t('You have not checked in to any operation yet.'),
     t('Group node from OG membership'),
-    t('Group'),
+    t('Space'),
     t('Member since'),
     t('All'),
     t('Content pane'),
