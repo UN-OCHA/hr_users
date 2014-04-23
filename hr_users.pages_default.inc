@@ -122,7 +122,7 @@ function hr_users_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'My check-ins',
+    'title' => 'My Check-ins',
     'name' => 'user-menu',
     'weight' => '0',
     'parent' => array(
