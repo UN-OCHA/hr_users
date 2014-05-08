@@ -294,6 +294,7 @@ function hr_users_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'views-icons';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
@@ -364,20 +365,145 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['user']['operator'] = '!=';
   $handler->display->display_options['filters']['user']['value']['value'] = '1';
 
-  /* Display: Space members */
-  $handler = $view->new_display('panel_pane', 'Space members', 'space_members');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'views-icons';
-  $handler->display->display_options['argument_input'] = array(
-    'og_user_node_target_id' => array(
-      'type' => 'context',
-      'context' => 'entity:node.nid',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'User: Group membership (og_user_node)',
+  /* Display: Master */
+  $handler = $view->new_display('page', 'Master', 'master');
+  $handler->display->display_options['path'] = 'node/%/people';
+
+  /* Display: List */
+  $handler = $view->new_display('page', 'List', 'list');
+  $handler->display->display_options['path'] = 'node/%/people/list';
+  $handler->display->display_options['menu']['type'] = 'default tab';
+  $handler->display->display_options['menu']['title'] = 'List';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['weight'] = '0';
+
+  /* Display: Map data */
+  $handler = $view->new_display('openlayers', 'Map data', 'map_data');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_data';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'tid',
+      'rendered' => 1,
+      'rendered_strip' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['data_source'] = array(
+    'value' => 'wkt',
+    'other_lat' => 'tid',
+    'other_lon' => 'tid',
+    'wkt' => 'field_geo_data',
+    'other_top' => 'tid',
+    'other_right' => 'tid',
+    'other_bottom' => 'tid',
+    'other_left' => 'tid',
+    'name_field' => 'nothing_1',
+    'description_field' => 'nothing',
+    'style_field' => '',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: User: Profile */
+  $handler->display->display_options['relationships']['profile']['id'] = 'profile';
+  $handler->display->display_options['relationships']['profile']['table'] = 'users';
+  $handler->display->display_options['relationships']['profile']['field'] = 'profile';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_location_target_id']['id'] = 'field_location_target_id';
+  $handler->display->display_options['relationships']['field_location_target_id']['table'] = 'field_data_field_location';
+  $handler->display->display_options['relationships']['field_location_target_id']['field'] = 'field_location_target_id';
+  $handler->display->display_options['relationships']['field_location_target_id']['relationship'] = 'profile';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'field_location_target_id';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  /* Field: Taxonomy term: Geospatial data */
+  $handler->display->display_options['fields']['field_geo_data']['id'] = 'field_geo_data';
+  $handler->display->display_options['fields']['field_geo_data']['table'] = 'field_data_field_geo_data';
+  $handler->display->display_options['fields']['field_geo_data']['field'] = 'field_geo_data';
+  $handler->display->display_options['fields']['field_geo_data']['relationship'] = 'field_location_target_id';
+  $handler->display->display_options['fields']['field_geo_data']['label'] = '';
+  $handler->display->display_options['fields']['field_geo_data']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_geo_data']['type'] = 'wkt';
+  $handler->display->display_options['fields']['field_geo_data']['settings'] = array(
+    'map' => 'default',
+  );
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_location_target_id';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['fields']['name_1']['table'] = 'users';
+  $handler->display->display_options['fields']['name_1']['field'] = 'name';
+  $handler->display->display_options['fields']['name_1']['label'] = '';
+  $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
+  /* Field: Field: Job Title */
+  $handler->display->display_options['fields']['field_job_title']['id'] = 'field_job_title';
+  $handler->display->display_options['fields']['field_job_title']['table'] = 'field_data_field_job_title';
+  $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
+  $handler->display->display_options['fields']['field_job_title']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_job_title']['label'] = '';
+  $handler->display->display_options['fields']['field_job_title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_job_title']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = 'Title';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Description';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[name_1] ([field_job_title])';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: User: Group membership (og_user_node) */
+  $handler->display->display_options['arguments']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['field'] = 'og_user_node_target_id';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['default_argument_type'] = 'og_context';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_user_node_target_id']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Map */
+  $handler = $view->new_display('page', 'Map', 'map');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_map';
+  $handler->display->display_options['style_options']['map'] = 'hr_people';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['path'] = 'node/%/people/map';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Map';
+  $handler->display->display_options['menu']['weight'] = '2';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['hr_users'] = array(
     t('Master'),
     t('more'),
@@ -395,8 +521,14 @@ function hr_users_views_default_views() {
     t('last »'),
     t('Profile'),
     t('All'),
-    t('Space members'),
-    t('View panes'),
+    t('List'),
+    t('Map data'),
+    t('Taxonomy term entity referenced from field_location'),
+    t('.'),
+    t('Title'),
+    t('Description'),
+    t('[name_1] ([field_job_title])'),
+    t('Map'),
   );
   $export['hr_users'] = $view;
 

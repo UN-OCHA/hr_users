@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function hr_users_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "openlayers" && $api == "openlayers_maps") {
+    return array("version" => "1");
+  }
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
