@@ -454,7 +454,6 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['name_1']['table'] = 'users';
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
   $handler->display->display_options['fields']['name_1']['label'] = '';
-  $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
   /* Field: Field: Job Title */
   $handler->display->display_options['fields']['field_job_title']['id'] = 'field_job_title';
@@ -462,7 +461,6 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
   $handler->display->display_options['fields']['field_job_title']['relationship'] = 'profile';
   $handler->display->display_options['fields']['field_job_title']['label'] = '';
-  $handler->display->display_options['fields']['field_job_title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_job_title']['settings'] = array(
     'link' => 0,
@@ -471,12 +469,13 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing_1']['label'] = 'Title';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Description';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[name_1] ([field_job_title])';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
@@ -525,8 +524,6 @@ function hr_users_views_default_views() {
     t('Map data'),
     t('Taxonomy term entity referenced from field_location'),
     t('.'),
-    t('Title'),
-    t('Description'),
     t('[name_1] ([field_job_title])'),
     t('Map'),
   );
