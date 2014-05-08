@@ -95,6 +95,15 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['status']['type_custom_true'] = 'Published';
   $handler->display->display_options['fields']['status']['type_custom_false'] = 'Draft';
   $handler->display->display_options['fields']['status']['not'] = 0;
+  /* Field: Content: Groups audience */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = 'Space';
+  $handler->display->display_options['fields']['og_group_ref']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['fields']['og_group_ref']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -138,6 +147,7 @@ function hr_users_views_default_views() {
     t('Status'),
     t('Published'),
     t('Draft'),
+    t('Space'),
     t('All'),
     t('Page'),
   );
