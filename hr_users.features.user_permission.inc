@@ -20,6 +20,15 @@ function hr_users_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer group'.
+  $permissions['administer group'] = array(
+    'name' => 'administer group',
+    'roles' => array(
+      'editor' => 'editor',
+    ),
+    'module' => 'og',
+  );
+
   // Exported permission: 'administer profile types'.
   $permissions['administer profile types'] = array(
     'name' => 'administer profile types',
@@ -36,6 +45,15 @@ function hr_users_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'profile2',
+  );
+
+  // Exported permission: 'bypass node access'.
+  $permissions['bypass node access'] = array(
+    'name' => 'bypass node access',
+    'roles' => array(
+      'editor' => 'editor',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: 'create fieldable hr_users'.
@@ -56,6 +74,16 @@ function hr_users_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'fieldable_panels_panes',
+  );
+
+  // Exported permission: 'delete revisions'.
+  $permissions['delete revisions'] = array(
+    'name' => 'delete revisions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit any main profile'.
@@ -86,6 +114,16 @@ function hr_users_user_default_permissions() {
     'module' => 'profile2',
   );
 
+  // Exported permission: 'revert revisions'.
+  $permissions['revert revisions'] = array(
+    'name' => 'revert revisions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'view any main profile'.
   $permissions['view any main profile'] = array(
     'name' => 'view any main profile',
@@ -103,6 +141,16 @@ function hr_users_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'profile2',
+  );
+
+  // Exported permission: 'view revisions'.
+  $permissions['view revisions'] = array(
+    'name' => 'view revisions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'node',
   );
 
   return $permissions;
