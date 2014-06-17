@@ -95,7 +95,7 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['status']['type_custom_true'] = 'Published';
   $handler->display->display_options['fields']['status']['type_custom_false'] = 'Draft';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Field: Content: Groups audience */
+  /* Field: Content: Space(s) */
   $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
   $handler->display->display_options['fields']['og_group_ref']['table'] = 'og_membership';
   $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
@@ -337,15 +337,12 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   /* Field: Field: Job Title */
-  $handler->display->display_options['fields']['field_job_title']['id'] = 'field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['table'] = 'field_data_field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['relationship'] = 'profile';
-  $handler->display->display_options['fields']['field_job_title']['label'] = '';
-  $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_job_title']['settings'] = array(
-    'link' => 0,
-  );
+  $handler->display->display_options['fields']['field_job_title_other']['id'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['table'] = 'field_data_field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['field'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_job_title_other']['label'] = '';
+  $handler->display->display_options['fields']['field_job_title_other']['element_label_colon'] = FALSE;
   /* Field: Field: Location */
   $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
   $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
@@ -407,15 +404,12 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   /* Field: Field: Job Title */
-  $handler->display->display_options['fields']['field_job_title']['id'] = 'field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['table'] = 'field_data_field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['relationship'] = 'profile';
-  $handler->display->display_options['fields']['field_job_title']['label'] = '';
-  $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_job_title']['settings'] = array(
-    'link' => 0,
-  );
+  $handler->display->display_options['fields']['field_job_title_other']['id'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['table'] = 'field_data_field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['field'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_job_title_other']['label'] = '';
+  $handler->display->display_options['fields']['field_job_title_other']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'node/%/people/list';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'List';
@@ -501,15 +495,12 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['name_1']['label'] = '';
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
   /* Field: Field: Job Title */
-  $handler->display->display_options['fields']['field_job_title']['id'] = 'field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['table'] = 'field_data_field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['field'] = 'field_job_title';
-  $handler->display->display_options['fields']['field_job_title']['relationship'] = 'profile';
-  $handler->display->display_options['fields']['field_job_title']['label'] = '';
-  $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_job_title']['settings'] = array(
-    'link' => 0,
-  );
+  $handler->display->display_options['fields']['field_job_title_other']['id'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['table'] = 'field_data_field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['field'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_job_title_other']['label'] = '';
+  $handler->display->display_options['fields']['field_job_title_other']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
@@ -521,7 +512,7 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[name_1] ([field_job_title])';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[name_1] ([field_job_title_other])';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Group membership (og_user_node) */
@@ -569,7 +560,7 @@ function hr_users_views_default_views() {
     t('Map data'),
     t('Taxonomy term entity referenced from field_location'),
     t('.'),
-    t('[name_1] ([field_job_title])'),
+    t('[name_1] ([field_job_title_other])'),
     t('Map'),
   );
   $export['hr_users'] = $view;
