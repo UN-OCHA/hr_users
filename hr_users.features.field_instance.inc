@@ -685,72 +685,12 @@ function hr_users_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_job_title'
-  $field_instances['profile2-main-field_job_title'] = array(
-    'bundle' => 'main',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'account' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 9,
-      ),
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 6,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'profile2',
-    'field_name' => 'field_job_title',
-    'label' => 'Job Title',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => 1,
-      ),
-      'type' => 'options_select',
-      'weight' => 4,
-    ),
-  );
-
   // Exported field_instance: 'profile2-main-field_job_title_other'
   $field_instances['profile2-main-field_job_title_other'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'If you selected "Other" in the above field, please enter your Job Title here',
+    'description' => 'Enter your job title here',
     'display' => array(
       'account' => array(
         'label' => 'above',
@@ -775,7 +715,7 @@ function hr_users_field_default_field_instances() {
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field_job_title_other',
-    'label' => 'Job Title name',
+    'label' => 'Job Title',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
