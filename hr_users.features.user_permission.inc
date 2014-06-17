@@ -53,6 +53,7 @@ function hr_users_user_default_permissions() {
     'name' => 'bypass node access',
     'roles' => array(
       'editor' => 'editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
