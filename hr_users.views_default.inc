@@ -239,6 +239,11 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = 'Member since';
   $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'og_membership_related_node_group';
   /* Contextual filter: OG membership: Entity id */
   $handler->display->display_options['arguments']['etid']['id'] = 'etid';
   $handler->display->display_options['arguments']['etid']['table'] = 'og_membership';
@@ -253,6 +258,15 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['entity_type']['table'] = 'og_membership';
   $handler->display->display_options['filters']['entity_type']['field'] = 'entity_type';
   $handler->display->display_options['filters']['entity_type']['value'] = 'user';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['filters']['type']['operator'] = 'not in';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'hr_bundle' => 'hr_bundle',
+  );
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'checkins');
