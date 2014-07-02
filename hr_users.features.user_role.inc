@@ -17,5 +17,12 @@ function hr_users_user_default_roles() {
     'machine_name' => 'editor',
   );
 
+  // Exported role: contributor.
+  $roles['contributor'] = array(
+    'name' => 'contributor',
+    'weight' => 4,
+    'machine_name' => 'contributor',
+  );
+
   return $roles;
 }
