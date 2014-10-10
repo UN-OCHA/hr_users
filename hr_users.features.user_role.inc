@@ -17,18 +17,18 @@ function hr_users_user_default_roles() {
     'machine_name' => 'contributor',
   );
 
-  // Exported role: trusted
-  $roles['trusted'] = array(
-    'name' => 'trusted',
-    'weight' => 3,
-    'machine_name' => 'trusted',
-  );
-
   // Exported role: editor.
   $roles['editor'] = array(
     'name' => 'editor',
     'weight' => 2,
     'machine_name' => 'editor',
+  );
+
+  // Exported role: trusted.
+  $roles['trusted'] = array(
+    'name' => 'trusted',
+    'weight' => 3,
+    'machine_name' => 'trusted',
   );
 
   return $roles;
