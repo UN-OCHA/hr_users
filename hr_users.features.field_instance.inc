@@ -1462,6 +1462,48 @@ function hr_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field_themes'
+  $field_instances['profile2-main-field_themes'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_themes',
+    'label' => 'Themes',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+      ),
+      'type' => 'options_select',
+      'weight' => 12,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('A field replacing fieldable panel pane title.');
@@ -1470,13 +1512,12 @@ function hr_users_field_default_field_instances() {
   t('Email');
   t('Enter any other email address you would like people to know of');
   t('Enter the location where you are based.');
+  t('Enter your job title here');
   t('First name');
   t('Global Cluster(s) you work for');
   t('Global Clusters');
-  t('If you selected "Other" in the above field, please enter your Job Title here');
   t('If you selected Other in the above field, enter the name of your organization here');
   t('Job Title');
-  t('Job Title name');
   t('Last name');
   t('Location');
   t('Name');
@@ -1487,6 +1528,7 @@ function hr_users_field_default_field_instances() {
   t('Skype ID');
   t('Social media links');
   t('Start typing the name of the person you would like to reference as a contact. If you can not find him/her, check the box below and enter the contact details manually.');
+  t('Themes');
   t('Title');
   t('User');
   t('Users');
