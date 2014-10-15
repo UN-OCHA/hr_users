@@ -409,6 +409,38 @@ function hr_users_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('page', 'Master', 'master');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'hr_user_thumbnail';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Job Title */
+  $handler->display->display_options['fields']['field_job_title_other']['id'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['table'] = 'field_data_field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['field'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_job_title_other']['label'] = '';
+  $handler->display->display_options['fields']['field_job_title_other']['element_label_colon'] = FALSE;
+  /* Field: Field: Location */
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['settings'] = array(
+    'link' => 0,
+  );
   $handler->display->display_options['path'] = 'node/%/people';
 
   /* Display: List */
@@ -420,7 +452,10 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['picture']['alter']['text'] = '[picture_1] ';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'hr_user_thumbnail';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -582,6 +617,7 @@ function hr_users_views_default_views() {
     t('Profile'),
     t('All'),
     t('List'),
+    t('[picture_1] '),
     t('Map data'),
     t('Taxonomy term entity referenced from field_location'),
     t('.'),
