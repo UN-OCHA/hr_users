@@ -102,3 +102,24 @@ function hr_users_og_features_toggle($entity, $entity_id, $entity_type, $feature
 
 }
 
+/**
+ * Implements hook_og_ui_get_group_admin()
+ */
+function hr_users_og_ui_get_group_admin($group_type, $gid) {
+  $items = array();
+
+  if (og_user_access($group_type, $gid, 'manage members')) {
+    $items['hr_users'] = array(
+      'title' => t('Editors'),
+      'description' => t('Display list of editors in this space'),
+      'href' => 'admin/editors',
+    );
+
+    $items['hr_users_managers'] = array(
+      'title' => t('Managers'),
+      'description' => t('Display list of managers in this space'),
+      'href' => 'admin/managers',
+    );
+  }
+  return $items;
+}
