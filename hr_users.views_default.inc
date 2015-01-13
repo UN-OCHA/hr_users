@@ -602,6 +602,9 @@ function hr_users_views_default_views() {
 
   /* Display: User groups */
   $handler = $view->new_display('page', 'User groups', 'user_og');
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -658,6 +661,11 @@ function hr_users_views_default_views() {
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['relationship'] = 'og_membership_rel';
+  /* Relationship: OG membership: OG Roles from membership */
+  $handler->display->display_options['relationships']['og_users_roles']['id'] = 'og_users_roles';
+  $handler->display->display_options['relationships']['og_users_roles']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_users_roles']['field'] = 'og_users_roles';
+  $handler->display->display_options['relationships']['og_users_roles']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -684,6 +692,26 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['og_roles']['field'] = 'og_roles';
   $handler->display->display_options['fields']['og_roles']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['fields']['og_roles']['label'] = 'Roles';
+  /* Field: Field: Job Title */
+  $handler->display->display_options['fields']['field_job_title_other']['id'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['table'] = 'field_data_field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['field'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['relationship'] = 'profile';
+  /* Field: Field: Organization */
+  $handler->display->display_options['fields']['field_organizations']['id'] = 'field_organizations';
+  $handler->display->display_options['fields']['field_organizations']['table'] = 'field_data_field_organizations';
+  $handler->display->display_options['fields']['field_organizations']['field'] = 'field_organizations';
+  $handler->display->display_options['fields']['field_organizations']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_organizations']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_organizations']['delta_offset'] = '0';
+  /* Field: User: Created date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'users';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'long';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -704,10 +732,23 @@ function hr_users_views_default_views() {
     'hr_sector' => 'hr_sector',
     'hr_space' => 'hr_space',
   );
+  /* Filter criterion: OG user roles: Role Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'og_role';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'og_users_roles';
+  $handler->display->display_options['filters']['name']['value'] = array(
+    'editor' => 'editor',
+    'manager' => 'manager',
+  );
+  $handler->display->display_options['filters']['name']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['path'] = 'admin/people/og';
 
   /* Display: User groups csv */
   $handler = $view->new_display('views_data_export', 'User groups csv', 'user_og_csv');
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
@@ -725,6 +766,11 @@ function hr_users_views_default_views() {
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['relationship'] = 'og_membership_rel';
+  /* Relationship: OG membership: OG Roles from membership */
+  $handler->display->display_options['relationships']['og_users_roles']['id'] = 'og_users_roles';
+  $handler->display->display_options['relationships']['og_users_roles']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_users_roles']['field'] = 'og_users_roles';
+  $handler->display->display_options['relationships']['og_users_roles']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -752,6 +798,26 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['og_roles']['field'] = 'og_roles';
   $handler->display->display_options['fields']['og_roles']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['fields']['og_roles']['label'] = 'Roles';
+  /* Field: Field: Job Title */
+  $handler->display->display_options['fields']['field_job_title_other']['id'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['table'] = 'field_data_field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['field'] = 'field_job_title_other';
+  $handler->display->display_options['fields']['field_job_title_other']['relationship'] = 'profile';
+  /* Field: Field: Organization */
+  $handler->display->display_options['fields']['field_organizations']['id'] = 'field_organizations';
+  $handler->display->display_options['fields']['field_organizations']['table'] = 'field_data_field_organizations';
+  $handler->display->display_options['fields']['field_organizations']['field'] = 'field_organizations';
+  $handler->display->display_options['fields']['field_organizations']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_organizations']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_organizations']['delta_offset'] = '0';
+  /* Field: User: Created date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'users';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'long';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -772,6 +838,16 @@ function hr_users_views_default_views() {
     'hr_sector' => 'hr_sector',
     'hr_space' => 'hr_space',
   );
+  /* Filter criterion: OG user roles: Role Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'og_role';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'og_users_roles';
+  $handler->display->display_options['filters']['name']['value'] = array(
+    'editor' => 'editor',
+    'manager' => 'manager',
+  );
+  $handler->display->display_options['filters']['name']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['path'] = 'admin/people/og.csv';
   $handler->display->display_options['displays'] = array(
     'page_1' => 'page_1',
@@ -809,10 +885,14 @@ function hr_users_views_default_views() {
     t('User groups'),
     t('OG membership from user'),
     t('Group node from OG membership'),
+    t('OG Roles from OG membership'),
     t('Name'),
     t('Email'),
     t('Space'),
     t('Roles'),
+    t('Job Title'),
+    t('Organization'),
+    t('Created date'),
     t('User groups csv'),
   );
   $export['hr_users'] = $view;
