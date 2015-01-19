@@ -102,3 +102,34 @@ function hr_users_og_features_toggle($entity, $entity_id, $entity_type, $feature
 
 }
 
+/**
+ * Implements hook_user_login().
+ */
+function hr_users_user_login(&$edit, $account) {
+  // Get account data from the auth service, and ensure the user's name is
+  // up to date in Drupal.
+  if (function_exists('hid_auth_get_user_data')) {
+    $data = hid_auth_get_user_data();
+    $profile = profile2_load_by_user($account, 'main');
+    if (empty($profile)) {
+      $profile_type = profile2_get_types('main');
+      $profile = profile2_create(array('user' => $account, 'type' => $profile_type));
+    }
+    if (!empty($data) && $profile) {
+      $changed = FALSE;
+
+      if (empty($profile->field_first_name[LANGUAGE_NONE][0]['value']) || $profile->field_first_name[LANGUAGE_NONE][0]['value'] != $data['name_given']) {
+        $profile->field_first_name[LANGUAGE_NONE][0]['value'] = $data['name_given'];
+        $changed = TRUE;
+      }
+      if (empty($profile->field_last_name[LANGUAGE_NONE][0]['value']) || $profile->field_last_name[LANGUAGE_NONE][0]['value'] != $data['name_family']) {
+        $profile->field_last_name[LANGUAGE_NONE][0]['value'] = $data['name_family'];
+        $changed = TRUE;
+      }
+
+      if ($changed) {
+        $profile->save();
+      }
+    }
+  }
+}
