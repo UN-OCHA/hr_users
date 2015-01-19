@@ -132,4 +132,46 @@ function hr_users_user_login(&$edit, $account) {
       }
     }
   }
+
+  // Check if the user's profile is complete. If not, set a session variable to
+  // enforce that the user complete the profile.
+  hr_users_check_profile();
+}
+
+/**
+ * Implements hook_init().
+ *
+ * For authenticated users when the 'hr_users_require_profile' flag is set,
+ * check the profile fields on each page.
+ */
+function hr_users_init() {
+  if (!user_is_anonymous() && !empty($_SESSION['hr_users_require_profile'])) {
+    hr_users_check_profile(TRUE);
+  }
+}
+
+/**
+ * Helper function to load the current user's main profile and ensure the
+ * required fields have been filled in.
+ */
+function hr_users_check_profile($redirect = NULL) {
+  global $user;
+
+  $profile = profile2_load_by_user($user, 'main');
+  if (empty($profile) || empty($profile->field_first_name[LANGUAGE_NONE][0]['value']) || empty($profile->field_last_name[LANGUAGE_NONE][0]['value']) || empty($profile->field_organizations[LANGUAGE_NONE][0]['target_id'])) {
+    $_SESSION['hr_users_require_profile'] = 1;
+
+    $profile_path = 'user/' . $user->uid . '/edit/main';
+    $allowed_paths = array(
+      $profile_path,
+      'user/logout'
+    );
+    if ($redirect && !in_array($_GET['q'], $allowed_paths)) {
+      drupal_set_message('Please complete your profile before using other site features.');
+      drupal_goto($profile_path);
+    }
+  }
+  else {
+    unset($_SESSION['hr_users_require_profile']);
+  }
 }
