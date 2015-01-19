@@ -120,5 +120,3 @@ features[views_view][] = hr_user_memberships
 features[views_view][] = hr_users
 features_exclude[field_base][field_phones] = field_phones
 features_exclude[field_base][field_emails] = field_emails
-features_exclude[dependencies][role_export] = role_export
-features_exclude[dependencies][views] = views
