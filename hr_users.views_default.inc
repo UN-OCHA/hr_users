@@ -732,16 +732,13 @@ function hr_users_views_default_views() {
     'hr_sector' => 'hr_sector',
     'hr_space' => 'hr_space',
   );
-  /* Filter criterion: OG user roles: Role Name */
-  $handler->display->display_options['filters']['name']['id'] = 'name';
-  $handler->display->display_options['filters']['name']['table'] = 'og_role';
-  $handler->display->display_options['filters']['name']['field'] = 'name';
-  $handler->display->display_options['filters']['name']['relationship'] = 'og_users_roles';
-  $handler->display->display_options['filters']['name']['value'] = array(
-    'editor' => 'editor',
-    'manager' => 'manager',
-  );
-  $handler->display->display_options['filters']['name']['reduce_duplicates'] = TRUE;
+  /* Filter criterion: OG membership: Entity id */
+  $handler->display->display_options['filters']['etid']['id'] = 'etid';
+  $handler->display->display_options['filters']['etid']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['etid']['field'] = 'etid';
+  $handler->display->display_options['filters']['etid']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['filters']['etid']['operator'] = '!=';
+  $handler->display->display_options['filters']['etid']['value']['value'] = '1';
   $handler->display->display_options['path'] = 'admin/people/og';
 
   /* Display: User groups csv */
@@ -846,16 +843,13 @@ function hr_users_views_default_views() {
     'hr_sector' => 'hr_sector',
     'hr_space' => 'hr_space',
   );
-  /* Filter criterion: OG user roles: Role Name */
-  $handler->display->display_options['filters']['name']['id'] = 'name';
-  $handler->display->display_options['filters']['name']['table'] = 'og_role';
-  $handler->display->display_options['filters']['name']['field'] = 'name';
-  $handler->display->display_options['filters']['name']['relationship'] = 'og_users_roles';
-  $handler->display->display_options['filters']['name']['value'] = array(
-    'editor' => 'editor',
-    'manager' => 'manager',
-  );
-  $handler->display->display_options['filters']['name']['reduce_duplicates'] = TRUE;
+  /* Filter criterion: OG membership: Entity id */
+  $handler->display->display_options['filters']['etid']['id'] = 'etid';
+  $handler->display->display_options['filters']['etid']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['etid']['field'] = 'etid';
+  $handler->display->display_options['filters']['etid']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['filters']['etid']['operator'] = '!=';
+  $handler->display->display_options['filters']['etid']['value']['value'] = '1';
   $handler->display->display_options['path'] = 'admin/people/og.csv';
   $handler->display->display_options['displays'] = array(
     'page_1' => 'page_1',
