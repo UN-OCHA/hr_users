@@ -19,7 +19,6 @@ dependencies[] = hr_locations
 dependencies[] = hr_organizations
 dependencies[] = hr_sectors
 dependencies[] = hr_themes
-dependencies[] = hr_users
 dependencies[] = image
 dependencies[] = link
 dependencies[] = link_icons
