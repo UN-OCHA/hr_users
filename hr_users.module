@@ -102,3 +102,76 @@ function hr_users_og_features_toggle($entity, $entity_id, $entity_type, $feature
 
 }
 
+/**
+ * Implements hook_user_login().
+ */
+function hr_users_user_login(&$edit, $account) {
+  // Get account data from the auth service, and ensure the user's name is
+  // up to date in Drupal.
+  if (function_exists('hid_auth_get_user_data')) {
+    $data = hid_auth_get_user_data();
+    $profile = profile2_load_by_user($account, 'main');
+    if (empty($profile)) {
+      $profile_type = profile2_get_types('main');
+      $profile = profile2_create(array('user' => $account, 'type' => $profile_type));
+    }
+    if (!empty($data) && $profile) {
+      $changed = FALSE;
+
+      if (empty($profile->field_first_name[LANGUAGE_NONE][0]['value']) || $profile->field_first_name[LANGUAGE_NONE][0]['value'] != $data['name_given']) {
+        $profile->field_first_name[LANGUAGE_NONE][0]['value'] = $data['name_given'];
+        $changed = TRUE;
+      }
+      if (empty($profile->field_last_name[LANGUAGE_NONE][0]['value']) || $profile->field_last_name[LANGUAGE_NONE][0]['value'] != $data['name_family']) {
+        $profile->field_last_name[LANGUAGE_NONE][0]['value'] = $data['name_family'];
+        $changed = TRUE;
+      }
+
+      if ($changed) {
+        $profile->save();
+      }
+    }
+  }
+
+  // Check if the user's profile is complete. If not, set a session variable to
+  // enforce that the user complete the profile.
+  hr_users_check_profile();
+}
+
+/**
+ * Implements hook_init().
+ *
+ * For authenticated users when the 'hr_users_require_profile' flag is set,
+ * check the profile fields on each page.
+ */
+function hr_users_init() {
+  if (!user_is_anonymous() && !empty($_SESSION['hr_users_require_profile'])) {
+    hr_users_check_profile(TRUE);
+  }
+}
+
+/**
+ * Helper function to load the current user's main profile and ensure the
+ * required fields have been filled in.
+ */
+function hr_users_check_profile($redirect = NULL) {
+  global $user;
+
+  $profile = profile2_load_by_user($user, 'main');
+  if (empty($profile) || empty($profile->field_first_name[LANGUAGE_NONE][0]['value']) || empty($profile->field_last_name[LANGUAGE_NONE][0]['value']) || empty($profile->field_organizations[LANGUAGE_NONE][0]['target_id'])) {
+    $_SESSION['hr_users_require_profile'] = 1;
+
+    $profile_path = 'user/' . $user->uid . '/edit/main';
+    $allowed_paths = array(
+      $profile_path,
+      'user/logout'
+    );
+    if ($redirect && !in_array($_GET['q'], $allowed_paths)) {
+      drupal_set_message('Please complete your profile before using other site features.');
+      drupal_goto($profile_path);
+    }
+  }
+  else {
+    unset($_SESSION['hr_users_require_profile']);
+  }
+}
