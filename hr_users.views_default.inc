@@ -603,6 +603,11 @@ function hr_users_views_default_views() {
   /* Display: User groups */
   $handler = $view->new_display('page', 'User groups', 'user_og');
   $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    30037204 => '30037204',
+  );
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -842,6 +847,11 @@ function hr_users_views_default_views() {
 
   /* Display: User groups csv */
   $handler = $view->new_display('views_data_export', 'User groups csv', 'user_og_csv');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    30037204 => '30037204',
+  );
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
