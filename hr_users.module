@@ -6,25 +6,6 @@
 
 include_once 'hr_users.features.inc';
 
-/** 
- * Implementation of hook_entity_info_alter()
- */
-function hr_users_entity_info_alter(&$entity_info) {
-
-  // Quick links
-  $entity_info['fieldable_panels_pane']['bundles']['hr_users'] = array(
-    'label' => t('Users'),
-    'pane category' => t('Users'),
-    'pane top level' => TRUE,
-    'admin' => array(
-      'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
-      'bundle argument' => 4,
-      'real path' => 'admin/structure/fieldable-panels-panes/manage/hr-users',
-      'access arguments' => array('administer fieldable panels panes'),
-    ),
-  );
-}
-
 function hr_users_field_formatter_info() {
   return array(
     'hr_users_skype' => array(
