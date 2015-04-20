@@ -602,9 +602,18 @@ function hr_users_views_default_views() {
 
   /* Display: User groups */
   $handler = $view->new_display('page', 'User groups', 'user_og');
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    30037204 => '30037204',
+  );
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -647,6 +656,12 @@ function hr_users_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Result summary */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['content'] = 'Displaying number of  @start - @end of @total';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Profile */
   $handler->display->display_options['relationships']['profile']['id'] = 'profile';
@@ -684,7 +699,7 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'og_membership_related_node_group';
-  $handler->display->display_options['fields']['title']['label'] = 'Space';
+  $handler->display->display_options['fields']['title']['label'] = 'Operations & Clusters';
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: OG membership: OG user roles in group */
   $handler->display->display_options['fields']['og_roles']['id'] = 'og_roles';
@@ -722,15 +737,45 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Name';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['relationship'] = 'og_membership_related_node_group';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'hr_operation' => 'hr_operation',
-    'hr_sector' => 'hr_sector',
-    'hr_space' => 'hr_space',
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Content Type';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
   );
   /* Filter criterion: OG membership: Entity id */
   $handler->display->display_options['filters']['etid']['id'] = 'etid';
@@ -739,10 +784,50 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['etid']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['etid']['operator'] = '!=';
   $handler->display->display_options['filters']['etid']['value']['value'] = '1';
+  $handler->display->display_options['filters']['etid']['group'] = 1;
+  $handler->display->display_options['filters']['etid']['expose']['operator_id'] = 'etid_op';
+  $handler->display->display_options['filters']['etid']['expose']['label'] = 'Entity id';
+  $handler->display->display_options['filters']['etid']['expose']['operator'] = 'etid_op';
+  $handler->display->display_options['filters']['etid']['expose']['identifier'] = 'etid';
+  $handler->display->display_options['filters']['etid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
+  /* Filter criterion: OG user roles: Role Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'og_role';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'og_users_roles';
+  $handler->display->display_options['filters']['name']['group_type'] = 'count';
+  $handler->display->display_options['filters']['name']['group'] = 1;
+  $handler->display->display_options['filters']['name']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['label'] = 'Role Type';
+  $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
+  $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
   $handler->display->display_options['path'] = 'admin/people/og';
 
   /* Display: User groups csv */
   $handler = $view->new_display('views_data_export', 'User groups csv', 'user_og_csv');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    30037204 => '30037204',
+  );
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -757,6 +842,12 @@ function hr_users_views_default_views() {
   $handler->display->display_options['style_options']['replace_newlines'] = 0;
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Result summary */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['content'] = 'Displaying number of  @start - @end of @total';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Profile */
   $handler->display->display_options['relationships']['profile']['id'] = 'profile';
@@ -795,7 +886,7 @@ function hr_users_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'og_membership_related_node_group';
-  $handler->display->display_options['fields']['title']['label'] = 'Space';
+  $handler->display->display_options['fields']['title']['label'] = 'Operations & Clusters';
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: OG membership: OG user roles in group */
   $handler->display->display_options['fields']['og_roles']['id'] = 'og_roles';
@@ -833,6 +924,26 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Name';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -840,9 +951,8 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['type']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['filters']['type']['value'] = array(
     'hr_operation' => 'hr_operation',
-    'hr_sector' => 'hr_sector',
-    'hr_space' => 'hr_space',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: OG membership: Entity id */
   $handler->display->display_options['filters']['etid']['id'] = 'etid';
   $handler->display->display_options['filters']['etid']['table'] = 'og_membership';
@@ -850,15 +960,35 @@ function hr_users_views_default_views() {
   $handler->display->display_options['filters']['etid']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['etid']['operator'] = '!=';
   $handler->display->display_options['filters']['etid']['value']['value'] = '1';
+  $handler->display->display_options['filters']['etid']['group'] = 1;
+  /* Filter criterion: OG user roles: Role Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'og_role';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'og_users_roles';
+  $handler->display->display_options['filters']['name']['group'] = 1;
+  $handler->display->display_options['filters']['name']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['label'] = 'Role Type';
+  $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
+  $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    218860149 => 0,
+    188284353 => 0,
+    235660466 => 0,
+  );
   $handler->display->display_options['path'] = 'admin/people/og.csv';
   $handler->display->display_options['displays'] = array(
-    'page_1' => 'page_1',
+    'user_og' => 'user_og',
     'default' => 0,
     'master' => 0,
     'list' => 0,
     'map' => 0,
   );
-  $handler->display->display_options['use_batch'] = 'batch';
   $handler->display->display_options['segment_size'] = '100';
   $translatables['hr_users'] = array(
     t('Master'),
@@ -885,16 +1015,20 @@ function hr_users_views_default_views() {
     t('[name_1] ([field_job_title_other])'),
     t('Map'),
     t('User groups'),
+    t('Displaying number of  @start - @end of @total'),
     t('OG membership from user'),
     t('Group node from OG membership'),
     t('OG Roles from OG membership'),
     t('Name'),
     t('Email'),
-    t('Space'),
+    t('Operations & Clusters'),
     t('Roles'),
     t('Job Title'),
     t('Organization'),
     t('Created date'),
+    t('Content Type'),
+    t('Entity id'),
+    t('Role Type'),
     t('User groups csv'),
   );
   $export['hr_users'] = $view;
