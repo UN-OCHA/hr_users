@@ -14,7 +14,7 @@ function hr_users_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_profile2_main';
-  $strongarm->value = '[profile2:field_first_name] [profile2:field_last_name]';
+  $strongarm->value = '[profile2:field-first-name] [profile2:field-last-name]';
   $export['auto_entitylabel_pattern_profile2_main'] = $strongarm;
 
   $strongarm = new stdClass();
