@@ -110,6 +110,7 @@ function hr_users_user_login(&$edit, $account) {
 
       if ($changed) {
         $profile->save();
+        user_save($account);
       }
     }
   }
@@ -126,7 +127,10 @@ function hr_users_user_login(&$edit, $account) {
  * check the profile fields on each page.
  */
 function hr_users_init() {
+  global $user;
   if (!user_is_anonymous() && !empty($_SESSION['hr_users_require_profile'])) {
+    $edit = array();
+    hr_users_user_login($edit, $user);
     hr_users_check_profile(TRUE);
   }
 }
